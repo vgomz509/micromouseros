@@ -1,0 +1,36 @@
+Masculinos:
+APocAPoc
+CaDeBou
+Camaiot
+CapDeFava
+Capfico
+Cocarroi
+Crespell
+Dimoni
+Foner
+Grumer
+Illenc
+Llonguet
+Moix
+PelsPels
+Ratolí
+RumbaBot
+Siurell
+Uep
+
+Femeninos:
+Burball
+Ensaimada
+Rata
+Roqueta
+Sobrassada
+Tramuntana
+
+Otros competidores:
+BuleBule
+JAN
+Perenquén
+Ratatron
+Sandía Express
+TSO2 (Teseo)
+Zerobot
