@@ -1,0 +1,50 @@
+OK means programmable IO
+16 I/O pins detected
+      - 5 for sensor init
+      - 4 for motors
+      - 4 for encoders
+      - 1 for button
+      - Total: 14 (2 free) ws2812b leds?
+
+00 	OK 	button
+02 	OK 	OK PERO DA PROBLEMAS (LED)
+04	OK	OLED SDA (OK SI NO USAS OLED)
+05	OK	LORA SCK
+12	OK
+13	OK
+14	OK	LORA RST (OK si no usas LORA)
+15	OK	OLED SCL (OK SI NO USAS OLED)
+16	OK	OLED RST (OK SI NO USAS OLED)
+17	OK
+18	--	LORA LORA CS (NO OK) ALWAYS GROUNDED (DEACTIVATE LORA)
+19	OK	LORA MISO (OK si no usas LORA)
+21 	--	SDA
+22	--	SCL
+23	OK
+25	OK
+26	--	LORA IRQ (NO OK)
+27	OK 	LORA MOSI (OK si no usas LORA)
+32  --	BLUEPIN (NO OK)
+33	-- 	BLUEPIN (NO OK)
+34	--	INPUT ONLY
+35	--	INPUT ONLY
+36	-- 	BLUEPIN INPUT ONLY
+37	--	BLUEPIN (NO OK)
+38	--	BLUEPIN (NO OK)
+39	--	INPUT ONLY
+RX	OK
+TX	OK
+RST
+
+Result: |  |  |  |  |  |  |  |  |  |  |  |OK|  |OK|OK|OK|OK|SD|
+ESP32:  |GN|5V|3V|36|37|38|39|34|35|32|33|25|26|27|14|12|13|21|
+Number: |01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|
+
+       [USB]                                   [OLED Face]
+
+Number  |01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|
+TTGO:   |GN|5V|3V|GN|RX|TX|RT|00|22|19|23|18|05|15|02|04|17|16|
+Result: |  |  |  |  |OK|OK|  |OK|SC|OK|OK|cs|OK|OK|OK|OK|OK|OK|
+
+
+
