@@ -2,13 +2,13 @@
 #define status_control_h
 
 // seters
-void setwhereami_cx (byte newcx);
-void setwhereami_cy (byte newcy);
-void setwhereami_co (byte newco);
+void setwhereami_cx (uint8_t newcx);
+void setwhereami_cy (uint8_t newcy);
+void setwhereami_co (uint8_t newco);
 void doEncodeLeft();
 void doEncodeRight();
-void setMode(byte newMode);  
-void reseteaPosicion_xya(float x, float y, float a);
+void setMode(uint8_t newMode);  
+void reseteaPosicion_xya(double x, double y, double a);
 void actualiza();
 
 
@@ -16,17 +16,17 @@ void actualiza();
 boolean hayParedIzquierda ();
 boolean hayParedDelante ();
 boolean hayParedDerecha ();
-byte getwhereami_cx ();
-byte getwhereami_cy ();
-byte getwhereami_co ();
-float getwhereami_x ();
-float getwhereami_y ();
-float getwhereami_a ();
+uint8_t getwhereami_cx ();
+uint8_t getwhereami_cy ();
+uint8_t getwhereami_co ();
+double getwhereami_x ();
+double getwhereami_y ();
+double getwhereami_a ();
 float getLinearSpeed();
 float getAngularSpeed();
 float getLinearAceleration();
 
-byte getMode();
+uint8_t getMode();
 
 
 

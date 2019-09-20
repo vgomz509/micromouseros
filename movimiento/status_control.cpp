@@ -4,20 +4,20 @@
 #include "config.h"
 
 //DEFINICIÓN DE VARIABLES
-volatile float myPosx = 0.0;
-volatile float myPosy = 0.0;
-volatile float myAlfa = 0.0;
-volatile float myLastPosx = 0.0;
-volatile float myLastPosy = 0.0;
-volatile float myLastAlfa = 0.0;
+volatile double myPosx = 0.0;
+volatile double myPosy = 0.0;
+volatile double myAlfa = 0.0;
+volatile double myLastPosx = 0.0;
+volatile double myLastPosy = 0.0;
+volatile double myLastAlfa = 0.0;
 volatile float myLinearSpeed = 0.0;
 volatile float myAngularSpeed =0.0;
 volatile float myLinearAceleration = 0.0;
 volatile float myAngularAceleration =0.0;
 
-volatile byte myCasillaX = 0;
-volatile byte myCasillaY = 0;
-volatile byte myOrientacion = 0;
+volatile uint8_t myCasillaX = 0;
+volatile uint8_t myCasillaY = 0;
+volatile uint8_t myOrientacion = 0;
 
 volatile long pulsesLeft = 0;
 volatile long lastPulsesLeft = 0;
@@ -25,13 +25,13 @@ volatile long lastPulsesLeft = 0;
 volatile long pulsesRight = 0;
 volatile long lastPulsesRight = 0;
 
-volatile byte myMode = 0;
+volatile uint8_t myMode = 0;
 volatile unsigned long lastStoredTime = 0;
 
 //funciones internas
 
 
-void reseteaPosicion_xya(float x, float y, float a){ 
+void reseteaPosicion_xya(double x, double y, double a){ 
 
   myPosx = x;
   myPosy = y;
@@ -46,7 +46,7 @@ void actualiza(){
   float rightSpeed;
   float timeLapsed;
   float myAvance;
-  float myIncrementAlfa;
+  double myIncrementAlfa;
 
   myLastAlfa= myAlfa;
   myLastPosx = myPosx;
@@ -95,44 +95,44 @@ void doEncodeRight()
 
 //SETTERS
  
-void setMode(byte newMode){
+void setMode(uint8_t newMode){
   myMode = newMode;
 }
 
-void setwhereami_cx (byte newcx){
+void setwhereami_cx (uint8_t newcx){
   myCasillaX = newcx;
 }
 
-void setwhereami_cy (byte newcy){
+void setwhereami_cy (uint8_t newcy){
   myCasillaY = newcy;
 }
 
-void setwhereami_co (byte newco){
+void setwhereami_co (uint8_t newco){
   myOrientacion = newco;
 }
 
 
 //GETTERS
 
-byte getwhereami_cx (){ //devuelve un byte con la casilla X en la que se encuentra el robot
+uint8_t getwhereami_cx (){ //devuelve un byte con la casilla X en la que se encuentra el robot
   return myCasillaX;
 } 
-byte getwhereami_cy (){ //devuelve un byte con la casilla Y en la que se encuentra el robot
+uint8_t getwhereami_cy (){ //devuelve un byte con la casilla Y en la que se encuentra el robot
   return myCasillaY;
 } 
-byte getwhereami_co (){ //devuelve un byte con la orientacion en la que se encuentra el robot (0=norte 1=sur 2=este 3=oeste)
+uint8_t getwhereami_co (){ //devuelve un byte con la orientacion en la que se encuentra el robot (0=norte 1=sur 2=este 3=oeste)
   return myOrientacion;
 } 
 
-float getwhereami_x (){ // devuelve un float indicando la posicion dentro de la casilla
+double getwhereami_x (){ // devuelve un float indicando la posicion dentro de la casilla
   return myPosx;
 }
 
-float getwhereami_y (){ // devuelve un float indicando la posicion dentro de la casilla
+double getwhereami_y (){ // devuelve un float indicando la posicion dentro de la casilla
   return myPosy;
 }
 
-float getwhereami_a (){ // devuelve un float indicando la orientaci�n dentro de la casilla 
+double getwhereami_a (){ // devuelve un float indicando la orientaci�n dentro de la casilla 
   return myAlfa;
 }
 
@@ -158,6 +158,6 @@ float getLinearAceleration(){
   return myLinearAceleration;
 }
 
-byte getMode(){
+uint8_t getMode(){
   return myMode;
 }
