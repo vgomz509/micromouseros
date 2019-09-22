@@ -53,61 +53,61 @@ void avanza (byte N_casillas){ // avanza N casillas
     case VUELTA_A_CASA:
       break;
     case TESTEO:
-      moveLeft(70); //70
-      moveRight(55); //55
+      moveLeft(210); //70
+      moveRight(255); //55
       delay(775 * N_casillas);
       fullStop (); 
       delay (500);
       break;
-//    case VICTOR_TEST:
-//      float errorSpeed = 0.0;
-//      float alfaObjetivo = 0.0;
-//      float speedObjetivo = REC_SPEED;
-//      float errorAlfa = 0.0;
-//      float errorAlfaAcomulado = 0.0;
-//      float PIDSpeed;
-//      float PIDAngularPosition;
-//      while (getwhereami_y ()< DIMENSION_CELDA * N_casillas){
-//        
-//        //pensamientos para control del angulo en rectas
-//        //en rectas apuntaremos a 2/3 del final de la recta(s), una vez ahí nuestro alfaobjetivo será 0
-//        //pensamientos para control del angulo en curvas
-//        //se puede ir incrementan errorAlfa en las cuvas para tener una aceleración angular controlada
-//        //esta aceleración puede ser inversamente proporcional a la velocidad que llevamos en ese momento, por lo que podemos no tener una aceleración lineal
-//        // hasta que whereami_a+ errorAlfa sean igual o superior a alfaObjetivo, en ese momento ir a buscar el alfa objetivo, que este será angulo entre el vector del coche y el vector que forma coche con punto de salida de la curva
-//        
-//        //calculo errorAlfa para rectas
-//        //Ir a buscar el punto getwhereami_x =0 getwhereami_y =(DIMENSION_CELDA * N_casillas) - 45.0) una vez llegado a  DIMENSION_CELDA * N_casillas - 60.0 iremos a buscar el getwhereami_x =0 getwhereami_y =(DIMENSION_CELDA * N_casillas) 
-//        
-//        if (getwhereami_y ()< (DIMENSION_CELDA * N_casillas - 60)){
-//          alfaObjetivo = (float)atan2 ((double)getwhereami_x(),  (double)(DIMENSION_CELDA * N_casillas - getwhereami_y() - 45.0)); // arc tangent of /__________ cateto opuesto/ cateto contiguo
-//        }else{
-//          alfaObjetivo = (float)atan2 (getwhereami_x(),  (DIMENSION_CELDA * N_casillas - getwhereami_y())); // arc tangent of /__________ cateto opuesto/ cateto contiguo
-//        }
-//        
-//        
-//        
-//        errorSpeed =(REC_SPEED - getLinearSpeed());
-//        errorAlfa = (alfaObjetivo - getwhereami_a());
-//        errorAlfaAcomulado = errorAlfaAcomulado + errorAlfa;
-//        PIDSpeed = (errorSpeed * KP_SPEED_LINEAR) + getLinearAceleration() * KD_SPEED_LINEAR ;
-//        PIDAngularPosition = (errorAlfa * KP_SPEED_ANGULAR) + (errorAlfaAcomulado * KI_SPEED_ANGULAR) + (getLinearAceleration()* KD_SPEED_ANGULAR);  
-//        
-//
-//       
-//        
-//        
-//
-//        moveLeft(map((constrain((REC_SPEED  - PIDAngularPosition), 0, TOP_SPEED)),0 ,TOP_SPEED, 0,255));
-//        moveRight(map((constrain((REC_SPEED  + PIDAngularPosition), 0, TOP_SPEED)),0 ,TOP_SPEED, 0,255));
-//        Serial.print(getwhereami_a());
-//        Serial.print(errorAlfa);
-//        Serial.print(alfaObjetivo);
-//        Serial.println(PIDAngularPosition);
-//
-//        actualiza();
-//      }
-//      break;
+    case VICTOR:
+      float errorSpeed = 0.0;
+      float alfaObjetivo = 0.0;
+      float speedObjetivo = REC_SPEED;
+      float errorAlfa = 0.0;
+      float errorAlfaAcomulado = 0.0;
+      float PIDSpeed;
+      float PIDAngularPosition;
+      while (getwhereami_y ()< DIMENSION_CELDA * N_casillas){
+        
+        //pensamientos para control del angulo en rectas
+        //en rectas apuntaremos a 2/3 del final de la recta(s), una vez ahí nuestro alfaobjetivo será 0
+        //pensamientos para control del angulo en curvas
+        //se puede ir incrementan errorAlfa en las cuvas para tener una aceleración angular controlada
+        //esta aceleración puede ser inversamente proporcional a la velocidad que llevamos en ese momento, por lo que podemos no tener una aceleración lineal
+        // hasta que whereami_a+ errorAlfa sean igual o superior a alfaObjetivo, en ese momento ir a buscar el alfa objetivo, que este será angulo entre el vector del coche y el vector que forma coche con punto de salida de la curva
+        
+        //calculo errorAlfa para rectas
+        //Ir a buscar el punto getwhereami_x =0 getwhereami_y =(DIMENSION_CELDA * N_casillas) - 45.0) una vez llegado a  DIMENSION_CELDA * N_casillas - 60.0 iremos a buscar el getwhereami_x =0 getwhereami_y =(DIMENSION_CELDA * N_casillas) 
+        
+        if (getwhereami_y ()< (DIMENSION_CELDA * N_casillas - 60)){
+          alfaObjetivo = (float)atan2 ((double)getwhereami_x(),  (double)(DIMENSION_CELDA * N_casillas - getwhereami_y() - 45.0)); // arc tangent of /__________ cateto opuesto/ cateto contiguo
+        }else{
+          alfaObjetivo = (float)atan2 (getwhereami_x(),  (DIMENSION_CELDA * N_casillas - getwhereami_y())); // arc tangent of /__________ cateto opuesto/ cateto contiguo
+        }
+        
+        
+        
+        errorSpeed =(REC_SPEED - getLinearSpeed());
+        errorAlfa = (alfaObjetivo - getwhereami_a());
+        errorAlfaAcomulado = errorAlfaAcomulado + errorAlfa;
+        PIDSpeed = (errorSpeed * KP_SPEED_LINEAR) + getLinearAceleration() * KD_SPEED_LINEAR ;
+        PIDAngularPosition = (errorAlfa * KP_SPEED_ANGULAR) + (errorAlfaAcomulado * KI_SPEED_ANGULAR) + (getLinearAceleration()* KD_SPEED_ANGULAR);  
+        
+
+       
+        
+        
+
+        moveLeft(map((constrain((REC_SPEED  - PIDAngularPosition), 0, TOP_SPEED)),0 ,TOP_SPEED, 0,255));
+        moveRight(map((constrain((REC_SPEED  + PIDAngularPosition), 0, TOP_SPEED)),0 ,TOP_SPEED, 0,255));
+        Serial.print(getwhereami_a());
+        Serial.print(errorAlfa);
+        Serial.print(alfaObjetivo);
+        Serial.println(PIDAngularPosition);
+
+        actualiza();
+      }
+      break;
   }
 
   switch (getwhereami_co ()) {//actualiza la posición y orientación en el laberinto
@@ -143,43 +143,43 @@ void giraDerecha (){
       fullStop (); 
       delay (500);       
       break;
-//    case VICTOR_TEST:
-//      float errorSpeed = 0.0;
-//      float alfaObjetivo = -1.5708; //corresponde a girar pi/2 hacia la derecha los angulos en arduino están en radianes
-//      float speedObjetivo = REC_SPEED;
-//      float errorAlfa = 0.0;
-//      float errorAlfaAcomulado = 0.0;
-//      float PIDSpeed;
-//      float PIDAngularPosition;
-//      while (getwhereami_x ()< 90.0){
-//
-//        //se puede ir incrementan errorAlfa en las cuvas para tener una aceleración angular controlada
-//        //esta aceleración puede ser inversamente proporcional a la velocidad que llevamos en ese momento, por lo que podemos no tener una aceleración lineal
-//        // hasta que whereami_a+ errorAlfa sean igual o superior a alfaObjetivo, en ese momento ir a buscar el alfa objetivo, que este será angulo entre el vector del coche y el vector que forma coche con punto de salida de la curva
-//        
-//        //calculo errorAlfa para curvas a derecha
-//        
-//        errorSpeed =(REC_SPEED - getLinearSpeed());
-//        errorAlfa = (alfaObjetivo - getwhereami_a());
-//        errorAlfaAcomulado = errorAlfaAcomulado + errorAlfa;
-//        PIDSpeed = (errorSpeed * KP_SPEED_LINEAR) + getLinearAceleration() * KD_SPEED_LINEAR ;
-//        PIDAngularPosition = (errorAlfa * KP_SPEED_ANGULAR) + (errorAlfaAcomulado * KI_SPEED_ANGULAR) + (getLinearAceleration()* KD_SPEED_ANGULAR);  
-//        
-//
-//       
-//        
-//        
-//
-//        moveLeft(map((constrain((REC_SPEED  - PIDAngularPosition), 0, TOP_SPEED)),0 ,TOP_SPEED, 0,255));
-//        moveRight(map((constrain((REC_SPEED  + PIDAngularPosition), 0, TOP_SPEED)),0 ,TOP_SPEED, 0,255));
-//        Serial.print(getwhereami_a());
-//        Serial.print(errorAlfa);
-//        Serial.print(alfaObjetivo);
-//        Serial.println(PIDAngularPosition);
-//
-//        actualiza();
-//      }
-//      break;
+    case VICTOR:
+      float errorSpeed = 0.0;
+      float alfaObjetivo = -1.5708; //corresponde a girar pi/2 hacia la derecha los angulos en arduino están en radianes
+      float speedObjetivo = REC_SPEED;
+      float errorAlfa = 0.0;
+      float errorAlfaAcomulado = 0.0;
+      float PIDSpeed;
+      float PIDAngularPosition;
+      while (getwhereami_x ()< 90.0){
+
+        //se puede ir incrementan errorAlfa en las cuvas para tener una aceleración angular controlada
+        //esta aceleración puede ser inversamente proporcional a la velocidad que llevamos en ese momento, por lo que podemos no tener una aceleración lineal
+        // hasta que whereami_a+ errorAlfa sean igual o superior a alfaObjetivo, en ese momento ir a buscar el alfa objetivo, que este será angulo entre el vector del coche y el vector que forma coche con punto de salida de la curva
+        
+        //calculo errorAlfa para curvas a derecha
+        
+        errorSpeed =(REC_SPEED - getLinearSpeed());
+        errorAlfa = (alfaObjetivo - getwhereami_a());
+        errorAlfaAcomulado = errorAlfaAcomulado + errorAlfa;
+        PIDSpeed = (errorSpeed * KP_SPEED_LINEAR) + getLinearAceleration() * KD_SPEED_LINEAR ;
+        PIDAngularPosition = (errorAlfa * KP_SPEED_ANGULAR) + (errorAlfaAcomulado * KI_SPEED_ANGULAR) + (getLinearAceleration()* KD_SPEED_ANGULAR);  
+        
+
+       
+        
+        
+
+        moveLeft(map((constrain((REC_SPEED  - PIDAngularPosition), 0, TOP_SPEED)),0 ,TOP_SPEED, 0,255));
+        moveRight(map((constrain((REC_SPEED  + PIDAngularPosition), 0, TOP_SPEED)),0 ,TOP_SPEED, 0,255));
+        Serial.print(getwhereami_a());
+        Serial.print(errorAlfa);
+        Serial.print(alfaObjetivo);
+        Serial.println(PIDAngularPosition);
+
+        actualiza();
+      }
+      break;
   }
 
   switch (getwhereami_co ()) {//actualiza la posición y orientación en el laberinto
@@ -219,43 +219,43 @@ void giraIzquierda (){
       fullStop (); 
       delay (500);        
       break;
-//    case VICTOR_TEST:
-//      float errorSpeed = 0.0;
-//      float alfaObjetivo = 1.5708; //corresponde a girar pi/2 hacia la izquierda los angulos en arduino están en radianes
-//      float speedObjetivo = REC_SPEED;
-//      float errorAlfa = 0.0;
-//      float errorAlfaAcomulado = 0.0;
-//      float PIDSpeed;
-//      float PIDAngularPosition;
-//      while (getwhereami_x ()< 90.0){
-//
-//        //se puede ir incrementan errorAlfa en las cuvas para tener una aceleración angular controlada
-//        //esta aceleración puede ser inversamente proporcional a la velocidad que llevamos en ese momento, por lo que podemos no tener una aceleración lineal
-//        // hasta que whereami_a+ errorAlfa sean igual o superior a alfaObjetivo, en ese momento ir a buscar el alfa objetivo, que este será angulo entre el vector del coche y el vector que forma coche con punto de salida de la curva
-//        
-//        //calculo errorAlfa para curvas a derecha
-//        
-//        errorSpeed =(REC_SPEED - getLinearSpeed());
-//        errorAlfa = (alfaObjetivo - getwhereami_a());
-//        errorAlfaAcomulado = errorAlfaAcomulado + errorAlfa;
-//        PIDSpeed = (errorSpeed * KP_SPEED_LINEAR) + getLinearAceleration() * KD_SPEED_LINEAR ;
-//        PIDAngularPosition = (errorAlfa * KP_SPEED_ANGULAR) + (errorAlfaAcomulado * KI_SPEED_ANGULAR) + (getLinearAceleration()* KD_SPEED_ANGULAR);  
-//        
-//
-//       
-//        
-//        
-//
-//        moveLeft(map((constrain((REC_SPEED  - PIDAngularPosition), 0, TOP_SPEED)),0 ,TOP_SPEED, 0,255));
-//        moveRight(map((constrain((REC_SPEED  + PIDAngularPosition), 0, TOP_SPEED)),0 ,TOP_SPEED, 0,255));
-//        Serial.print(getwhereami_a());
-//        Serial.print(errorAlfa);
-//        Serial.print(alfaObjetivo);
-//        Serial.println(PIDAngularPosition);
-//
-//        actualiza();
-//      }
-//      break;
+    case VICTOR:
+      float errorSpeed = 0.0;
+      float alfaObjetivo = 1.5708; //corresponde a girar pi/2 hacia la izquierda los angulos en arduino están en radianes
+      float speedObjetivo = REC_SPEED;
+      float errorAlfa = 0.0;
+      float errorAlfaAcomulado = 0.0;
+      float PIDSpeed;
+      float PIDAngularPosition;
+      while (getwhereami_x ()< 90.0){
+
+        //se puede ir incrementan errorAlfa en las cuvas para tener una aceleración angular controlada
+        //esta aceleración puede ser inversamente proporcional a la velocidad que llevamos en ese momento, por lo que podemos no tener una aceleración lineal
+        // hasta que whereami_a+ errorAlfa sean igual o superior a alfaObjetivo, en ese momento ir a buscar el alfa objetivo, que este será angulo entre el vector del coche y el vector que forma coche con punto de salida de la curva
+        
+        //calculo errorAlfa para curvas a derecha
+        
+        errorSpeed =(REC_SPEED - getLinearSpeed());
+        errorAlfa = (alfaObjetivo - getwhereami_a());
+        errorAlfaAcomulado = errorAlfaAcomulado + errorAlfa;
+        PIDSpeed = (errorSpeed * KP_SPEED_LINEAR) + getLinearAceleration() * KD_SPEED_LINEAR ;
+        PIDAngularPosition = (errorAlfa * KP_SPEED_ANGULAR) + (errorAlfaAcomulado * KI_SPEED_ANGULAR) + (getLinearAceleration()* KD_SPEED_ANGULAR);  
+        
+
+       
+        
+        
+
+        moveLeft(map((constrain((REC_SPEED  - PIDAngularPosition), 0, TOP_SPEED)),0 ,TOP_SPEED, 0,255));
+        moveRight(map((constrain((REC_SPEED  + PIDAngularPosition), 0, TOP_SPEED)),0 ,TOP_SPEED, 0,255));
+        Serial.print(getwhereami_a());
+        Serial.print(errorAlfa);
+        Serial.print(alfaObjetivo);
+        Serial.println(PIDAngularPosition);
+
+        actualiza();
+      }
+      break;
    }
    
    switch (getwhereami_co ()) { //actualiza la posición y orientación en el laberinto
@@ -301,7 +301,7 @@ void avanzaDiagonalDerecha (byte N_casillas){
         casillas_recorridas++;
       }
       break;
-//    case VICTOR_TEST:
+//    case VICTOR:
 //      break;
   }
 }
@@ -329,7 +329,7 @@ void avanzaDiagonalIzquierda (byte N_casillas){
         casillas_recorridas++;
       }
       break;
-//    case VICTOR_TEST:
+//    case VICTOR:
 //      break;
   }
 }
@@ -350,7 +350,7 @@ void gira180 (){
       fullStop (); 
       delay (500);        
       break;
-//    case VICTOR_TEST:
+//    case VICTOR:
 //      break;
   }
   switch (getwhereami_co ()) { //actualiza la posición y orientación en el laberinto

@@ -8,16 +8,19 @@
 #define OLED_SCL 15  // Hardware I2C does NOT work!  RMB
 #define OLED_RST 16
 #define BAUD_RATE 115200  // Serial baud rate
-#define LEFT_ENCODER_A_PIN  36  //este es el que genera la interrupción
-#define LEFT_ENCODER_B_PIN  37
+#define LEFT_ENCODER_A_PIN  37  //este es el que genera la interrupción
+#define LEFT_ENCODER_B_PIN  36
 #define RIGHT_ENCODER_A_PIN 38  //este es el que genera la interrupción
 #define RIGHT_ENCODER_B_PIN 39
 #define FRECUENCIA_PWM 31250  //frecuencia de los pwm del arduino nano
 #define RESOLUCION_N_BITS_PWM 8
-#define LEFT_MOTOR_REV_PIN 27
-#define LEFT_MOTOR_FWD_PIN 5
-#define RIGHT_MOTOR_REV_PIN 2
-#define RIGHT_MOTOR_FWD_PIN 17
+
+#define LEFT_MOTOR_REV_PIN 17
+#define LEFT_MOTOR_FWD_PIN 2
+
+#define RIGHT_MOTOR_REV_PIN 27
+#define RIGHT_MOTOR_FWD_PIN 5
+
 #define LEFT_MOTOR_REV_CH 0
 #define LEFT_MOTOR_FWD_CH 1
 #define RIGHT_MOTOR_REV_CH 2
