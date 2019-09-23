@@ -26,7 +26,7 @@ void Display::showPosition()
   _u8g2->setFontDirection(1);
   _u8g2->drawStr(128, 0, "CASILLA:");
   _u8g2->drawStr(110, 0, "X=");
-  _u8g2->drawStr(110, 25, String(getwhereami_cx()).c_str());
+  _u8g2->drawStr(110, 25, String(getwhereami_cx()).c_str()); // Método alternativo a las dos instrucciones comentadas a continuación.
 //   _u8g2->setCursor(110, 25);
 //   _u8g2->print(getwhereami_cx());
   _u8g2->drawStr(110, 32, "|Y=");
@@ -74,22 +74,22 @@ void Display::showPosition()
   _u8g2->sendBuffer();
 }
 
-uint8_t Display::selectMode()
+uint8_t Display::selectFromMenu(String menu[], uint8_t elements)
 {
-  String menu[]={"Reconocimiento", "Carrera", "Testeo", "Juanjo", "Sergio", "Victor"};
   int position = 0;
   boolean selectionMade = false;
   long initTime, endTime;
-  printMenu(menu, 6, position);
+  printMenu(menu, elements, position);
   while(!selectionMade){
     initTime = millis();
     while (digitalRead(0) == LOW){
+      if (millis() - initTime > 1000) break;
     }
     endTime = millis();
     if (endTime - initTime < 1000 && endTime - initTime > 100){
       position++;
-      if (position > 5) position = 0;
-      printMenu(menu, 6, position);
+      if (position > elements - 1) position = 0;
+      printMenu(menu, elements, position);
       delay(200);
     } else if (endTime - initTime > 1000){
       return position;
