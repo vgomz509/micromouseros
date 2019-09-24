@@ -19,6 +19,7 @@ Display::Display(const u8g2_cb_t *rotation, uint8_t clock, uint8_t data, uint8_t
 void Display::showPosition()
 {
   _u8g2->clearBuffer();
+  _u8g2->setDisplayRotation(U8G2_R0);   // Se puede poner en horizontal cambiando a U8G2_R1 pero hay que tener cuidado con las posiciones al dibujar
   _u8g2->setFont(u8g2_font_6x10_tf);
   _u8g2->setFontRefHeightExtendedText();
   _u8g2->setDrawColor(1);
@@ -100,6 +101,7 @@ uint8_t Display::selectFromMenu(String menu[], uint8_t elements)
 void Display::printMenu(String items[], uint8_t elements, uint8_t selected)
 {
   _u8g2->clearBuffer();
+  _u8g2->setDisplayRotation(U8G2_R0);
   _u8g2->setFont(u8g2_font_6x10_tf);
   _u8g2->setFontRefHeightExtendedText();
   _u8g2->setDrawColor(1);
@@ -119,5 +121,18 @@ void Display::printMenu(String items[], uint8_t elements, uint8_t selected)
     y -= 10;
   }
   
+  _u8g2->sendBuffer();
+}
+
+void Display::showIP(String address){
+  _u8g2->clearBuffer();
+  _u8g2->setDisplayRotation(U8G2_R1);
+  _u8g2->setFont(u8g2_font_6x10_tf);
+  _u8g2->setFontRefHeightExtendedText();
+  _u8g2->setDrawColor(1);
+  _u8g2->setFontPosTop();
+  _u8g2->setFontDirection(1);
+  _u8g2->drawStr(64, 0, "IP:");
+  _u8g2->drawStr(54, 0, address.c_str());
   _u8g2->sendBuffer();
 }

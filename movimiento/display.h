@@ -29,6 +29,7 @@ int elegido = display->selectFromMenu(menu, 7);
     public:
       Display(const u8g2_cb_t *rotation, uint8_t clock, uint8_t data, uint8_t reset);
       void showPosition();
+      void showIP(String address);
       uint8_t selectFromMenu(String menu[], uint8_t elements);
     private:
       U8G2_SSD1306_128X64_NONAME_F_SW_I2C *_u8g2;
