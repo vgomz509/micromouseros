@@ -4,10 +4,12 @@
 #include "status_control.h"
 #include "display.h"
 #include "U8g2lib.h"
+#include "BluetoothSerial.h"
 #include "ota_server.h"
 
 Display *display;
-TaskHandle_t otaServer;
+// TaskHandle_t otaServer;
+BluetoothSerial BTSerial;
 
 void setup()
 {
@@ -33,31 +35,31 @@ void setup()
 
   display = new Display(/* rotation=*/U8G2_R0, /* clock=*/ OLED_SCL, /* data=*/ OLED_SDA, /* reset=*/ OLED_RST);
 
-  createOTAServer(&otaServer);
+  // createOTAServer(&otaServer);
+  BTSerial.begin("Mousito01BT");
  }
 
 void enviaDatosSerie() {
   actualiza();
-  Serial.print(getwhereami_x());
-  Serial.print (";");
-  Serial.print(getwhereami_y());
-  Serial.print (";");
-  Serial.println(getwhereami_a());
-  Serial.println(xPortGetCoreID());
+  BTSerial.print(getwhereami_x());
+  BTSerial.print (";");
+  BTSerial.print(getwhereami_y());
+  BTSerial.print (";");
+  BTSerial.println(getwhereami_a());
 }
 
 void loop()
 {
-  //delay(1000);
-  // enviaDatosSerie();
+  // delay(1000);
   // setMode(display->selectMode());
 
   setMode(JUANJO);
   // avanza(2);
   // fullStop ();
-  display->showIP(getIP());
-  delay(2000);
+  // display->showIP(getIP());
+  // delay(2000);
 
+  enviaDatosSerie();
   display->showPosition();
   delay(2000);
 }

@@ -1,0 +1,6 @@
+{
+    "sketch": "movimiento\\movimiento.ino",
+    "board": "esp32:esp32:ttgo-lora32-v1",
+    "configuration": "FlashFreq=80,UploadSpeed=921600,DebugLevel=none",
+    "port": "COM5"
+}
