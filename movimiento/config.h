@@ -2,6 +2,16 @@
 #define config_h
 
 //definicion del hardware tanto pines y dimensiones
+
+#define ENABLE_SENSOR_FRONTAL_DERECHA 18
+#define ENABLE_SENSOR_FRONTAL_IZQUIERDA 25
+#define ENABLE_SENSOR_DIAGONAL_DERECHA 26
+#define ENABLE_SENSOR_DIAGONAL_IZQUIERDA 13
+#define ENABLE_SENSOR_LATERAL_IZQUIERDA 23
+#define DELAY_ARRANQUE_SENSOR 500
+
+
+
 #define SENSOR_SDA 21 
 #define SENSOR_SCL 22
 #define OLED_SDA 4    // For TTGo ESP32 LoRa-OLED

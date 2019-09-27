@@ -2,6 +2,7 @@
 //#include <math.h>
 #include "Arduino.h"
 #include "config.h"
+#include "status_control.h"
 
 //DEFINICIÓN DE VARIABLES
 volatile double myPosx = 0.0;
@@ -48,6 +49,9 @@ void actualiza(){
   float myAvance;
   double myIncrementAlfa;
 
+  // ******* CALCULAR CUANTO TARDA EN HACER LA FUNCIÓN
+  long start = micros();
+
   myLastAlfa= myAlfa;
   myLastPosx = myPosx;
   myLastPosy = myPosy;
@@ -66,6 +70,10 @@ void actualiza(){
 
   lastPulsesLeft = pulsesLeft;
   lastPulsesRight = pulsesRight;
+  
+  // ******* CALCULAR CUANTO TARDA EN HACER LA FUNCIÓN
+  long finish = micros();
+  Serial.println(finish - start);
 }
 
 
@@ -134,6 +142,12 @@ double getwhereami_y (){ // devuelve un float indicando la posicion dentro de la
 
 double getwhereami_a (){ // devuelve un float indicando la orientaci�n dentro de la casilla 
   return myAlfa;
+}
+long getPulsesLeft (){
+  return pulsesLeft;
+}
+long getPulsesRight(){
+  return pulsesRight;
 }
 
 

@@ -10,6 +10,7 @@ void doEncodeRight();
 void setMode(uint8_t newMode);  
 void reseteaPosicion_xya(double x, double y, double a);
 void actualiza();
+void actualizaParedes();
 
 
 //geters
@@ -25,6 +26,9 @@ double getwhereami_a ();
 float getLinearSpeed();
 float getAngularSpeed();
 float getLinearAceleration();
+long getPulsesLeft ();
+long getPulsesRight();
+
 
 uint8_t getMode();
 
