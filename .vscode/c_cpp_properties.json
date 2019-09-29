@@ -5,9 +5,11 @@
             "includePath": [
                 "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\**",
                 "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\**",
-                "C:\\Users\\nieve\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\**",
-                "C:\\Users\\nieve\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.3\\**",
-                "C:\\Juanjo\\Arduino\\libraries\\U8g2\\**"
+                "C:\\Users\\juanjo\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\**",
+                "C:\\Users\\juanjo\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.3\\**",
+                "D:\\Juanjo\\Arduino\\libraries\\U8g2\\**",
+                "D:\\Juanjo\\Arduino\\libraries\\VL6180X\\**",
+                "D:\\Juanjo\\Arduino\\libraries\\Adafruit_VL53L0X\\**"
             ],
             "forcedInclude": [],
             "intelliSenseMode": "msvc-x64"
