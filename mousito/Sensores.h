@@ -9,6 +9,8 @@
   #define TYPE_VL6180X 1
   #define TYPE_VL53L0X 2
 
+  // extern BluetoothSerial BTSerial;
+
   class Sensores{
     public:
       boolean addSensor(uint8_t type, const char *name);

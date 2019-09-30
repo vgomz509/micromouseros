@@ -1,7 +1,7 @@
 #include "Sensores.h"
 #include "VL6180X.h"
 #include "Adafruit_VL53L0X.h"
-#include "BluetoothSerial.h"
+// #include "BluetoothSerial.h"
 
 boolean Sensores::addSensor(uint8_t type, const char name[]){
   switch(type){
