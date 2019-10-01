@@ -4,13 +4,16 @@ Clase para ayudar a utilizar los sensores usados en el micromouse. Actualmente s
   - Adafruit_VL53L0X (próximamente)
 Para poder inicializar varios sensores que tienen la misma dirección se debe
 proporcionar la dirección a la que se quiere cambiar al crearlo.
+
 Ejemplo de uso:
   sensores.addSensor(TYPE_VL6180X, "Lateral izquierda", 0x51, 23);
        Parámetros: Tipo de sensor, nombre asignado,  dirección, pin para inicializar
+
 Una vez inicializado se puede solicitar la lectura con el método getDistance("nombre")
 */
 #ifndef sensores_h
   #define sensores_h
+  #define MAX_SENSORES 10   // Número máximo de sensores de cada tipo
 
   #include "VL6180X.h"
   #include "Adafruit_VL53L0X.h"
@@ -31,8 +34,8 @@ Una vez inicializado se puede solicitar la lectura con el método getDistance("n
       void initializeVL53L0X(Adafruit_VL53L0X *sensor, const uint8_t address, const uint8_t pin);
       void initializeVL6180X(VL6180X *sensor, const uint8_t address, const uint8_t pin);
       uint8_t getType(const char name[]);
-      Adafruit_VL53L0X vl53l0x[10];
-      VL6180X vl6180x[10];
+      Adafruit_VL53L0X vl53l0x[MAX_SENSORES];
+      VL6180X vl6180x[MAX_SENSORES];
       uint8_t vl53l0x_count = 0;
       uint8_t vl6180x_count = 0;
       char vl53l0x_names[10][20];

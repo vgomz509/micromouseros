@@ -3,5 +3,8 @@
 
   // #include "BluetoothSerial.h"
 
-  // extern BluetoothSerial BTSerial;
+  // BluetoothSerial BTSerial;
+
+  void doEncoderLeft();
+  void doEncoderRight();
 #endif
