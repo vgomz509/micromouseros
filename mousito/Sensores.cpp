@@ -1,4 +1,5 @@
 #include "Sensores.h"
+#include <SPI.h>
 #include "VL6180X.h"
 #include "Adafruit_VL53L0X.h"
 
@@ -70,9 +71,8 @@ uint16_t Sensores::getDistance(const char name[]){
       sensor618 = getVL6180XSensor(name);
       return sensor618->readRangeSingleMillimeters();
       break;
-    default:
-      return 0;
   }
+  return 0;
 }
 
 uint8_t Sensores::getType(const char name[]){

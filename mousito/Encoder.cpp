@@ -25,5 +25,4 @@ long Encoder::getLastPulses(){
 
 void Encoder::savePulses(){
   _lastPulses = _pulses;
-  _pulses = 0;
 }
